@@ -13,7 +13,8 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <div class="nav-bar"></div>
+        <div class="nav-bar">
+        </div>
         <div id="app">
             <div class="product">
                 <div class="product-image">
@@ -22,6 +23,9 @@
                 <div class="product-info">
                     <h1>{{product}}</h1>
                 </div>
+            </div>
+            <div class="app-footer">
+                <p>Developed by : <a v-bind:href="link">pauloguerraf.dev</a></p>
             </div>
         </div>
         
