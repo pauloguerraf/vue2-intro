@@ -4,6 +4,7 @@ var app = new Vue({
         product: 'Las Medias',
         image: './assets/socks_green.jpg',
         link: 'https://pauloguerraf.dev',
-        inventory: 0
+        inventory: 0,
+        onSale: true
     }
 })

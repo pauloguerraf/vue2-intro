@@ -22,6 +22,7 @@
                 </div>
                 <div class="product-info">
                     <h1>{{product}}</h1>
+                    <p v-if="onSale">On Sale!</p>
                     <p v-if="inventory > 10">Si hay</p>
                     <p v-else-if="inventory < 10 && inventory > 0">Compre rápido que se acaban</p>
                     <p v-else>Ya no hay</p>
@@ -31,6 +32,7 @@
                 <p>Desarrollado por : <a v-bind:href="link">pauloguerraf.dev</a></p>
             </div>
         </div>
+        
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
         <script src="main.js"></script>
