@@ -34,6 +34,10 @@
                     <div v-for="variant in variants" :key="variant.variantId">
                         {{variant.variantColor}}
                     </div>
+
+                    <ul v-for="size in sizes">
+                        <li>{{size}}</li>
+                    </ul>
                 </div>
             </div>
             <div class="app-footer">
