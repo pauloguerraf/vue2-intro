@@ -25,7 +25,7 @@
                     <p v-if="onSale">On Sale!</p>
                     <p v-if="inventory > 10">Si hay</p>
                     <p v-else-if="inventory < 10 && inventory > 0">Compre rápido que se acaban</p>
-                    <p v-else>Ya no hay</p>
+                    <p v-else :class="{lineThrough:!inStock}">Ya no hay</p>
 
                     <h2>Details</h2>
                     <ul v-for="detail in details">
@@ -37,12 +37,15 @@
                         <li>{{size}}</li>
                     </ul>
 
-                    <div v-for="variant in variants" :key="variant.variantId">
-                       <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+                    <div v-for="variant in variants" :key="variant.variantId"
+                    class="color-box"
+                    :style="{backgroundColor: variant.variantColor}"
+                    @mouseover="updateProduct(variant.variantImage)">
                     </div>
 
 
-                    <button v-on:click="addToCart">Add to Cart</button>
+                    <button v-on:click="addToCart" :disabled="!inStock"
+                    :class="{disabledButton:!inStock}">Add to Cart</button>
 
                     <div class="cart">
                         <p>Cart ({{cart}})</p>

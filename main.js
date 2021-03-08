@@ -5,6 +5,7 @@ var app = new Vue({
         image: './assets/socks_green.jpg',
         link: 'https://pauloguerraf.dev',
         inventory: 0,
+        inStock: false,
         onSale: true,
         details: ["80% algodón", "20% poliéster", "género neutro"],
         variants: [
