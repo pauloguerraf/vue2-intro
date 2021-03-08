@@ -38,6 +38,13 @@
                     <ul v-for="size in sizes">
                         <li>{{size}}</li>
                     </ul>
+
+
+                    <button v-on:click="addToCart">Add to Cart</button>
+
+                    <div class="cart">
+                        <p>Cart ({{cart}})</p>
+                    </div>
                 </div>
             </div>
             <div class="app-footer">
