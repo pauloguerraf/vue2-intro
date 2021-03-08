@@ -22,10 +22,12 @@
                 </div>
                 <div class="product-info">
                     <h1>{{product}}</h1>
+                    <p v-if="inStock">Si hay</p>
+                    <p v-else>No hay</p>
                 </div>
             </div>
             <div class="app-footer">
-                <p>Developed by : <a v-bind:href="link">pauloguerraf.dev</a></p>
+                <p>Desarrollado por : <a v-bind:href="link">pauloguerraf.dev</a></p>
             </div>
         </div>
         

@@ -1,8 +1,9 @@
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'Socks',
+        product: 'Las Medias',
         image: './assets/socks_green.jpg',
-        link: 'https://pauloguerraf.dev'
+        link: 'https://pauloguerraf.dev',
+        inStock: true
     }
 })
