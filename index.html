@@ -26,6 +26,14 @@
                     <p v-if="inventory > 10">Si hay</p>
                     <p v-else-if="inventory < 10 && inventory > 0">Compre rápido que se acaban</p>
                     <p v-else>Ya no hay</p>
+
+                    <ul v-for="detail in details">
+                        <li>{{detail}}</li>
+                    </ul>
+
+                    <div v-for="variant in variants" :key="variant.variantId">
+                        {{variant.variantColor}}
+                    </div>
                 </div>
             </div>
             <div class="app-footer">
