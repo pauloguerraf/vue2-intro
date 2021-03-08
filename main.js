@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        brand: 'VueMastery',
         product: 'Las Medias',
         image: './assets/socks_green.jpg',
         link: 'https://pauloguerraf.dev',
@@ -29,6 +30,11 @@ var app = new Vue({
         },
         updateProduct: function (variantImage) {
             this.image = variantImage
+        }
+    },
+    computed: {
+        title: function () {
+            return this.product + ' ' + this.brand
         }
     }
 })
