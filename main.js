@@ -4,6 +4,6 @@ var app = new Vue({
         product: 'Las Medias',
         image: './assets/socks_green.jpg',
         link: 'https://pauloguerraf.dev',
-        inStock: true
+        inventory: 0
     }
 })
