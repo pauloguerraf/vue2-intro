@@ -3,22 +3,24 @@ var app = new Vue({
     data: {
         brand: 'VueMastery',
         product: 'Las Medias',
-        image: './assets/socks_green.jpg',
-        link: 'https://pauloguerraf.dev',
+        selectedVariant: 0,
         inventory: 0,
-        inStock: false,
-        onSale: true,
+        link: 'https://pauloguerraf.dev',
         details: ["80% algodón", "20% poliéster", "género neutro"],
         variants: [
             {
                 variantId: 2234,
                 variantColor: "green",
-                variantImage: "./assets/socks_green.jpg"
+                variantImage: "./assets/socks_green.jpg",
+                variantQuantity: 10,
+                variantOnSale: true
             },
             {
                 variantId: 2235,
                 variantColor: "blue",
-                variantImage: "./assets/socks_blue.jpg"
+                variantImage: "./assets/socks_blue.jpg",
+                variantQuantity: 0,
+                variantOnSale: false
             }
         ],
         sizes: ["XS", "S", "M", "L", "XL"],
@@ -28,13 +30,23 @@ var app = new Vue({
         addToCart: function () {
             this.cart += 1
         },
-        updateProduct: function (variantImage) {
-            this.image = variantImage
+        updateProduct (index) {
+            this.selectedVariant = index
+            this.inventory = this.variants[this.selectedVariant].variantQuantity
         }
     },
     computed: {
-        title: function () {
+        title() {
             return this.product + ' ' + this.brand
+        },
+        image() {
+            return this.variants[this.selectedVariant].variantImage
+        },
+        inStock() {
+            return this.variants[this.selectedVariant].variantQuantity
+        },
+        onSale() {
+            return this.variants[this.selectedVariant].variantOnSale
         }
     }
 })

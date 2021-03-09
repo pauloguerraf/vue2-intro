@@ -22,10 +22,11 @@
                 </div>
                 <div class="product-info">
                     <h1>{{title}}</h1>
-                    <p v-if="onSale">On Sale!</p>
-                    <p v-if="inventory > 10">Si hay</p>
-                    <p v-else-if="inventory < 10 && inventory > 0">Compre rápido que se acaban</p>
-                    <p v-else :class="{lineThrough:!inStock}">Ya no hay</p>
+                    <p v-if="onSale">{{title}} están On Sale!</p>
+                    <div>
+                        <p v-if="inStock">Si hay</p>
+                        <p v-else :class="{lineThrough:!inStock}">Ya no hay</p>
+                    </div>
 
                     <h2>Details</h2>
                     <ul v-for="detail in details">
@@ -37,10 +38,10 @@
                         <li>{{size}}</li>
                     </ul>
 
-                    <div v-for="variant in variants" :key="variant.variantId"
+                    <div v-for="(variant, index) in variants" :key="variant.variantId"
                     class="color-box"
                     :style="{backgroundColor: variant.variantColor}"
-                    @mouseover="updateProduct(variant.variantImage)">
+                    @mouseover="updateProduct(index)">
                     </div>
 
 
