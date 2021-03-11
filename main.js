@@ -1,3 +1,4 @@
+Vue.config.devtools = true
 Vue.component('product-details', {
     props: {
         details: {
@@ -50,6 +51,8 @@ Vue.component('product', {
 
                     <button v-on:click="addToCart" :disabled="!inStock"
                     :class="{disabledButton:!inStock}">Add to Cart</button>
+                    <button v-on:click="removeFromCart" :disabled="!inStock"
+                    :class="{disabledButton:!inStock}">Remove from Cart</button>
                 </div>
             </div>
             <div class="app-footer">
@@ -74,7 +77,7 @@ Vue.component('product', {
                     variantId: 2235,
                     variantColor: "blue",
                     variantImage: "./assets/socks_blue.jpg",
-                    variantQuantity: 0,
+                    variantQuantity: 2,
                     variantOnSale: false
                 }
             ],
@@ -84,6 +87,9 @@ Vue.component('product', {
     methods: {
         addToCart() {
             this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+        },
+        removeFromCart() {
+            this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
         },
         updateProduct (index) {
             this.selectedVariant = index
@@ -122,6 +128,10 @@ var app = new Vue({
     methods: {
         updateCart(id) {
             this.cart.push(id)
+        },
+        removeProduct(id) {
+            const index = this.cart.indexOf(id)
+            if(index >- 1)this.cart.splice(index, 1)
         }
     }
 })
