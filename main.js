@@ -1,3 +1,18 @@
+Vue.component('product-details', {
+    props: {
+        details: {
+            type: Array,
+            required: true
+        }
+    },
+    template: `<div>
+        <h2>Product Details</h2>
+        <ul v-for="detail in details">
+            <li>{{detail}}</li>
+        </ul>
+    </div>`
+})
+
 Vue.component('product', {
     props: {
         premium: {
@@ -19,11 +34,8 @@ Vue.component('product', {
                         <p>Shipping: {{shipping}} </p>
                     </div>
 
-                    <h2>Details</h2>
-                    <ul v-for="detail in details">
-                        <li>{{detail}}</li>
-                    </ul>
-
+                    
+                    
                     <h2>Sizes</h2>
                     <ul v-for="size in sizes">
                         <li>{{size}}</li>
@@ -54,7 +66,6 @@ Vue.component('product', {
             selectedVariant: 0,
             inventory: 0,
             link: 'https://pauloguerraf.dev',
-            details: ["80% algodón", "20% poliéster", "género neutro"],
             variants: [
                 {
                     variantId: 2234,
@@ -109,6 +120,7 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
-        premium: false
+        premium: false,
+        details: ["80% algodón", "20% poliéster", "género neutro"]
     }
 })
